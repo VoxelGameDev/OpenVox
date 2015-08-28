@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+
+# Editors & IDEs
+*.user
+*.swp
+*~
