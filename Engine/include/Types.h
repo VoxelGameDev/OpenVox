@@ -22,12 +22,12 @@ typedef int8_t sbyte; ///< 8-bit signed integer
 typedef int16_t i16; ///< 16-bit signed integer
 typedef int32_t i32; ///< 32-bit signed integer
 typedef int64_t i64; ///< 64-bit signed integer
-typedef uint8_t ui8; ///< 8-bit unsigned integer
+typedef uint8_t u8; ///< 8-bit unsigned integer
 typedef uint8_t ubyte; ///< 8-bit unsigned integer
-typedef uint16_t ui16; ///< 16-bit unsigned integer
-typedef uint32_t ui32; ///< 32-bit unsigned integer
-typedef uint64_t ui64; ///< 64-bit unsigned integer
-typedef unsigned int uint; ///< unsigned integer
+typedef uint16_t u16; ///< 16-bit unsigned integer
+typedef uint32_t u32; ///< 32-bit unsigned integer
+typedef uint64_t u64; ///< 64-bit unsigned integer
+typedef unsigned int unt; ///< unsigned integer
 typedef unsigned long ulong; ///< unsigned long
 typedef unsigned long long ulong2; ///< unsigned long long
 
@@ -94,7 +94,7 @@ typedef vorb::Vector2<i64> i64v2;
 *  s  ,  t
 * </pre>
 */
-typedef vorb::Vector2<ui8> ui8v2;
+typedef vorb::Vector2<u8> u8v2;
 /*! @brief 16-bit unsigned integer 2-value vector.
 *
 * Elements can be accessed via: @n
@@ -105,7 +105,7 @@ typedef vorb::Vector2<ui8> ui8v2;
 *  s  ,  t
 * </pre>
 */
-typedef vorb::Vector2<ui16> ui16v2;
+typedef vorb::Vector2<u16> u16v2;
 /*! @brief 32-bit unsigned integer 2-value vector.
 *
 * Elements can be accessed via: @n
@@ -116,7 +116,7 @@ typedef vorb::Vector2<ui16> ui16v2;
 *  s  ,  t
 * </pre>
 */
-typedef vorb::Vector2<ui32> ui32v2;
+typedef vorb::Vector2<u32> u32v2;
 /*! @brief 64-bit unsigned integer 2-value vector.
 *
 * Elements can be accessed via: @n
@@ -127,7 +127,7 @@ typedef vorb::Vector2<ui32> ui32v2;
 *  s  ,  t
 * </pre>
 */
-typedef vorb::Vector2<ui64> ui64v2;
+typedef vorb::Vector2<u64> u64v2;
 /*! @brief 32-bit floating point (single) 2-value vector.
 *
 * Elements can be accessed via: @n
@@ -204,7 +204,7 @@ typedef vorb::Vector3<i64> i64v3;
 *  s  ,  t  ,  p
 * </pre>
 */
-typedef vorb::Vector3<ui8> ui8v3;
+typedef vorb::Vector3<u8> u8v3;
 /*! @brief 16-bit unsigned integer 3-value vector.
 *
 * Elements can be accessed via: @n
@@ -215,7 +215,7 @@ typedef vorb::Vector3<ui8> ui8v3;
 *  s  ,  t  ,  p
 * </pre>
 */
-typedef vorb::Vector3<ui16> ui16v3;
+typedef vorb::Vector3<u16> u16v3;
 /*! @brief 32-bit unsigned integer 3-value vector.
 *
 * Elements can be accessed via: @n
@@ -226,7 +226,7 @@ typedef vorb::Vector3<ui16> ui16v3;
 *  s  ,  t  ,  p
 * </pre>
 */
-typedef vorb::Vector3<ui32> ui32v3;
+typedef vorb::Vector3<u32> u32v3;
 /*! @brief 64-bit unsigned integer 3-value vector.
 *
 * Elements can be accessed via: @n
@@ -237,7 +237,7 @@ typedef vorb::Vector3<ui32> ui32v3;
 *  s  ,  t  ,  p
 * </pre>
 */
-typedef vorb::Vector3<ui64> ui64v3;
+typedef vorb::Vector3<u64> u64v3;
 /*! @brief 32-bit floating point (single) 3-value vector.
 *
 * Elements can be accessed via: @n
@@ -314,7 +314,7 @@ typedef vorb::Vector4<i64> i64v4;
 *  s  ,  t  ,  p  ,  q
 * </pre>
 */
-typedef vorb::Vector4<ui8> ui8v4;
+typedef vorb::Vector4<u8> u8v4;
 /*! @brief 16-bit unsigned integer 4-value vector.
 *
 * Elements can be accessed via: @n
@@ -325,7 +325,7 @@ typedef vorb::Vector4<ui8> ui8v4;
 *  s  ,  t  ,  p  ,  q
 * </pre>
 */
-typedef vorb::Vector4<ui16> ui16v4;
+typedef vorb::Vector4<u16> u16v4;
 /*! @brief 32-bit unsigned integer 4-value vector.
 *
 * Elements can be accessed via: @n
@@ -336,7 +336,7 @@ typedef vorb::Vector4<ui16> ui16v4;
 *  s  ,  t  ,  p  ,  q
 * </pre>
 */
-typedef vorb::Vector4<ui32> ui32v4;
+typedef vorb::Vector4<u32> u32v4;
 /*! @brief 64-bit unsigned integer 4-value vector.
 *
 * Elements can be accessed via: @n
@@ -347,7 +347,7 @@ typedef vorb::Vector4<ui32> ui32v4;
 *  s  ,  t  ,  p  ,  q
 * </pre>
 */
-typedef vorb::Vector4<ui64> ui64v4;
+typedef vorb::Vector4<u64> u64v4;
 /*! @brief 32-bit floating point (single) 4-value vector.
 *
 * Elements can be accessed via: @n
