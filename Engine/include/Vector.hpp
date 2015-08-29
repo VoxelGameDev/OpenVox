@@ -13,7 +13,7 @@
 
 #pragma once
 
-namespace vorb {
+namespace vgd {
     // Forward decl
     template <typename T>
     class Vector3;
