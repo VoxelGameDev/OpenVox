@@ -13,5 +13,5 @@ ADD_CUSTOM_TARGET(Engine ALL SOURCES
     include/Vector.inl
     include/VGD.h
     include/VGDAssert.hpp
-    include/VGDMath.hpp
+    include/Events.hpp
 )
