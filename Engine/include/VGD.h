@@ -11,5 +11,6 @@
 
 #pragma once
 
+#include "Decorators.h"
 #include "types.h"
 #include "math/VGDMath.hpp"
