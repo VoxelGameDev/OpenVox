@@ -32,3 +32,6 @@
 *.swp
 *~
 .idea/
+
+# Build artifacts
+build/
