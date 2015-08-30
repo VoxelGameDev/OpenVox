@@ -1,5 +1,5 @@
 # OpenVox
-Welcome to the OpenVox, the open source voxel engine.  You can find us on reddit: [/r/OpenVox](http://www.reddit.com/r/OpenVox)! This project is MIT licensed.
+Welcome to the OpenVox, the open source voxel engine.  You can find us on reddit: [/r/OpenVox](http://www.reddit.com/r/OpenVox)! This project is Apache 2.0 licensed.
 
 # How To Contribute
 Fork the project in github and make changes, then make a pull request when you feel it is ready. The admins will review your changes and may or may not merge them with the main product.
