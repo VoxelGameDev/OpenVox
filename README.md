@@ -17,13 +17,13 @@ Style Guide is on our [wiki](https://github.com/VoxelGameDev/OpenVox/wiki/Style-
 #### Windows
 ```
 git clone --recurse-submodules https://github.com:VoxelGameDev/OpenVox openvox
-cd openvoxel
+cd openvox
 ./build.bat
 ```
 
 #### Mac or Linux
 ```
 git clone --recurse-submodules https://github.com:VoxelGameDev/OpenVox openvox
-cd openvoxel
+cd openvox
 ./build.sh
 ```
