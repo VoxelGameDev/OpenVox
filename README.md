@@ -4,5 +4,5 @@ Welcome to the Open Source Collaboration Project for /r/VoxelGameDev! This proje
 # How To Contribute
 Fork the project in github and make changes, then make a pull request when you feel it is ready. The admins will review your changes and may or may not merge them with the main product.
 
-# Style Guide:
-We have added this to our [wiki](https://github.com/VoxelGameDev/OpenVox/wiki/Style-Guide).
+Style Guide is on our [wiki](https://github.com/VoxelGameDev/OpenVox/wiki/Style-Guide).
+
