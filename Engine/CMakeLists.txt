@@ -1,9 +1,6 @@
 # When you add a new file to the engine, please add it to the lists below.
  ADD_LIBRARY(Engine
-     src/Window.cpp
- )
-
-ADD_CUSTOM_TARGET(Engine ALL SOURCES
+    src/Window.cpp
     include/math/VectorMath.hpp
     include/math/VGDMath.hpp
     include/Decorators.h
@@ -14,4 +11,4 @@ ADD_CUSTOM_TARGET(Engine ALL SOURCES
     include/VGDAssert.hpp
     include/Events.hpp
     include/Window.h
-)
+ )
