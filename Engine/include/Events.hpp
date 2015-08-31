@@ -68,7 +68,7 @@ protected:
     }
     template<typename T>
     static void freeObject(Caller c) {
-        T* obj = (T*)c;T
+        T* obj = (T*)c;
         obj->~T();
         operator delete(c);
     }
@@ -89,7 +89,7 @@ template<typename Ret, typename... Args>
 class RDelegate : public DelegateBase {
     template<typename... Params> friend class Event;
 public:
-    typedef Ret(*CallStub)(Caller, Function, Args...); ///< Function type for a stub
+    typedef Ret(*CallStub)(DelegateBase::Caller, DelegateBase::Function, Args...); ///< Function type for a stub
 
     RDelegate(Caller c, Function f, CallStub s, Deleter d) : DelegateBase(c, f, s, d) {
         // Empty

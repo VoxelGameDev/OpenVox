@@ -12,5 +12,7 @@
 #pragma once
 
 #include "Decorators.h"
-#include "types.h"
+#include "Types.h"
+#include "Events.hpp"
+#include "OpenVoxAssert.hpp"
 #include "math/OpenVoxMath.hpp"

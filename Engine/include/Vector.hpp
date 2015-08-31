@@ -13,7 +13,10 @@
 
 #pragma once
 
+#include <vector>
+
 #include "OpenVoxAssert.hpp"
+#include "Decorators.h"
 
 
 namespace openvox {

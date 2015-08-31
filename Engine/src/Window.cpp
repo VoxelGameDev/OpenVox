@@ -6,10 +6,8 @@
 
 // TODO(Ben): This might not be right.
 #if defined(__APPLE__)
-#pragma message("Using SDL 2")
 #include <SDL2/SDL.h>
 #else
-#pragma message("Using SDL 1")
 #include <SDL/SDL.h>
 #endif
 
@@ -19,7 +17,7 @@ openvox::Window::Window() :
 onQuit(this) {
     // Empty
 }
-OPENVOX_MOVABLE_DEF(ovox::Window, o) {
+OPENVOX_MOVABLE_DEF(openvox::Window, o) {
     std::swap(m_glc, o.m_glc);
     std::swap(m_window, o.m_window);
     std::swap(m_displayMode, o.m_displayMode);
@@ -165,7 +163,7 @@ void openvox::Window::setSwapInterval(GameSwapInterval mode, bool overrideCheck 
 void openvox::Window::setMaxFPS(f32 fpsLimit) {
     m_displayMode.maxFPS = fpsLimit;
 }
-void openvox::Window::setTitle(const cString title) const {
+void openvox::Window::setTitle(const char* title) const {
     if (!title) title = DEFAULT_TITLE;
     SDL_SetWindowTitle((SDL_Window*)m_window, title);
 }
