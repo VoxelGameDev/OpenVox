@@ -12,10 +12,10 @@
 
 #pragma once
 
-#include "OVOX.h"
+#include "OpenVox.h"
 #include "Events.hpp"
 
-namespace ovox {
+namespace openvox {
     // Forward declarations
     struct WindowResizeEvent;
 

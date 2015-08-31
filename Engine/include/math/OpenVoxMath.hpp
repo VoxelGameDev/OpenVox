@@ -1,11 +1,11 @@
 //
-// VGDMath.hpp
-// VGD Engine
+// OpenVoxMath.hpp
+// OpenVox Engine
 //
 // Created by Benjamin Arnold on 29 Aug 2015
 //
 
-/*! \file VGDMath.hpp
+/*! \file OpenVoxMath.hpp
 * @brief Math library main header.
 */
 

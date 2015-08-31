@@ -1,6 +1,6 @@
 //
 // Decorators.h
-// VGD Engine
+// OpenVox Engine
 //
 // Created by Benjamin Arnold on 29 Aug 2015
 //

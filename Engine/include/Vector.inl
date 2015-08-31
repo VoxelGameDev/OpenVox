@@ -24,7 +24,7 @@ GLOBAL_OPERATOR(& ); \
 GLOBAL_OPERATOR(| ); \
 GLOBAL_OPERATOR(^ ); \
 GLOBAL_OPERATOR(<<); \
-GLOBAL_OPERATOR(>>); 
+GLOBAL_OPERATOR(>>);
 
 /************************************************************************/
 /* Vector2 Implementation                                               */
@@ -32,12 +32,12 @@ GLOBAL_OPERATOR(>>);
 
 template<typename T>
 inline T& Vector2<T>::operator[](int i) {
-    vgd_assert(i >= 0 && i < 2, "Index out of range");
+    openvox_assert(i >= 0 && i < 2, "Index out of range");
     return data[i];
 }
 template<typename T>
 inline const T& Vector2<T>::operator[](int i) const {
-    vgd_assert(i >= 0 && i < 2, "Index out of range");
+    openvox_assert(i >= 0 && i < 2, "Index out of range");
     return data[i];
 }
 
@@ -134,12 +134,12 @@ x(static_cast<T>(a)), y(static_cast<T>(b.x)), z(static_cast<T>(b.y)) {
 /* Operators */
 template<typename T>
 inline T& Vector3<T>::operator[](int i) {
-    vgd_assert(i >= 0 && i < 3, "Index out of range");
+    openvox_assert(i >= 0 && i < 3, "Index out of range");
     return data[i];
 }
 template<typename T>
 inline const T& Vector3<T>::operator[](int i) const {
-    vgd_assert(i >= 0 && i < 3, "Index out of range");
+    openvox_assert(i >= 0 && i < 3, "Index out of range");
     return data[i];
 }
 
@@ -259,12 +259,12 @@ x(static_cast<T>(a.x)), y(static_cast<T>(a.y)), z(static_cast<T>(b.x)), w(static
 /* Operators */
 template<typename T>
 inline T& Vector4<T>::operator[](int i) {
-    vgd_assert(i >= 0 && i < 4, "Index out of range");
+    openvox_assert(i >= 0 && i < 4, "Index out of range");
     return data[i];
 }
 template<typename T>
 inline const T& Vector4<T>::operator[](int i) const {
-    vgd_assert(i >= 0 && i < 4, "Index out of range");
+    openvox_assert(i >= 0 && i < 4, "Index out of range");
     return data[i];
 }
 
