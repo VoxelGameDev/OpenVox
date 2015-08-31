@@ -1,9 +1,9 @@
 //
 // Events.hpp
-// Vorb Engine
+// OpenVox Engine
 //
 // Created by Ben Arnold on 29 Aug 2015
-// Code by esteemed Sith Lord Cristian Zaloj in Vorb Engine.
+// Code by esteemed Sith Lord Cristian Zaloj in OpenVox Engine.
 //
 
 /************************************************************************/
