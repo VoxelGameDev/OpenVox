@@ -79,7 +79,7 @@ bool ovox::Window::init(GameDisplayMode* displayMode /*= nullptr*/) {
         int numDisplayModes = SDL_GetNumDisplayModes(displayIndex);
         for (int i = 0; i < numDisplayModes; i++) {
             SDL_GetDisplayMode(displayIndex, i, &mode);
-            ui32v2 res(mode.w, mode.h);
+            u32v2 res(mode.w, mode.h);
             if (i == 0 || m_supportedResolutions.back() != res) {
                 m_supportedResolutions.push_back(res);
             }
@@ -125,14 +125,14 @@ void ovox::Window::setScreenSize(i32 w, i32 h, bool overrideCheck /*= false*/) {
         m_displayMode.screenWidth = w;
         m_displayMode.screenHeight = h;
 
-        SDL_SetWindowSize(ovox_WINDOW_HANDLE(m_window), m_displayMode.screenWidth, m_displayMode.screenHeight);
+        SDL_SetWindowSize((SDL_Window*)m_window, m_displayMode.screenWidth, m_displayMode.screenHeight);
         InputDispatcher::window.onResize({ w, h }); // TODO(Ben): This feels so dirty, but is necessary for LUA UI
     }
 }
 void ovox::Window::setFullscreen(bool useFullscreen, bool overrideCheck /*= false*/) {
     if (overrideCheck || m_displayMode.isFullscreen != useFullscreen) {
         m_displayMode.isFullscreen = useFullscreen;
-        SDL_SetWindowFullscreen(ovox_WINDOW_HANDLE(m_window), m_displayMode.isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
+        SDL_SetWindowFullscreen((SDL_Window*)m_window, m_displayMode.isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
     }
 }
 void ovox::Window::setBorderless(bool useBorderless, bool overrideCheck /*= false*/) {
@@ -168,9 +168,9 @@ void ovox::Window::setPosition(int x, int y) {
     SDL_SetWindowPosition((SDL_Window*)m_window, x, y);
 }
 
-void ovox::Window::sync(ui32 frameTime) {
+void ovox::Window::sync(u32 frameTime /*= UINT_MAX*/) {
     pollInput();
-    SDL_GL_SwapWindow(ovox_WINDOW_HANDLE(m_window));
+    SDL_GL_SwapWindow((SDL_Window*)m_window);
 
     // Limit FPS
     if (m_displayMode.swapInterval == GameSwapInterval::USE_VALUE_CAP) {
@@ -186,17 +186,17 @@ ovox::GraphicsContext ovox::Window::getContext() const {
 
 i32 ovox::Window::getX() const {
     i32 v;
-    SDL_GetWindowPosition(ovox_WINDOW_HANDLE(m_window), &v, nullptr);
+    SDL_GetWindowPosition((SDL_Window*)m_window, &v, nullptr);
     return v;
 }
 i32 ovox::Window::getY() const {
     i32 v;
-    SDL_GetWindowPosition(ovox_WINDOW_HANDLE(m_window), nullptr, &v);
+    SDL_GetWindowPosition((SDL_Window*)m_window, nullptr, &v);
     return v;
 }
 i32v2 ovox::Window::getPosition() const {
     i32v2 v;
-    SDL_GetWindowPosition(ovox_WINDOW_HANDLE(m_window), &v.x, &v.y);
+    SDL_GetWindowPosition((SDL_Window*)m_window, &v.x, &v.y);
     return v;
 }
 

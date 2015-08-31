@@ -149,7 +149,7 @@ namespace ovox {
         void setMaxFPS(f32 fpsLimit);
         void setTitle(const cString title) const;
 
-        void sync(u32 frameTime);
+        void sync(u32 frameTime = UINT_MAX);
 
         Event<> onQuit;
 
