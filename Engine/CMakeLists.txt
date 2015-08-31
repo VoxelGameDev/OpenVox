@@ -1,9 +1,8 @@
-# Please change to: 
-# ADD_LIBRARY(Engine
-#     <sources>
-# )
-# when engine is no longer header-only.
-# When you add a new file to the engine, please add it to the list below.
+# When you add a new file to the engine, please add it to the lists below.
+ ADD_LIBRARY(Engine
+     src/Window.cpp
+ )
+
 ADD_CUSTOM_TARGET(Engine ALL SOURCES
     include/math/VectorMath.hpp
     include/math/VGDMath.hpp
@@ -11,7 +10,8 @@ ADD_CUSTOM_TARGET(Engine ALL SOURCES
     include/Types.h
     include/Vector.hpp
     include/Vector.inl
-    include/VGD.h
+    include/OVOX.h
     include/VGDAssert.hpp
     include/Events.hpp
+    include/Window.h
 )
