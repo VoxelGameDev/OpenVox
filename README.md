@@ -19,8 +19,8 @@ If you're interested in helping please read the [CONTRIBUTING](https://github.co
 ### Clone Repository and Build
 
 #### Windows
-git clone --recurse-submodules https://github.com:VoxelGameDev/OpenVox openvox
 ```
+git clone --recurse-submodules https://github.com:VoxelGameDev/OpenVox openvox
 cd openvox
 ./build.bat
 ```
