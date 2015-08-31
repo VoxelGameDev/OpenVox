@@ -1,0 +1,6 @@
+[submodule "deps"]
+	path = deps
+	url = https://github.com/VoxelGameDev/OpenVoxDeps
+[submodule "Engine/deps"]
+	path = Engine/deps
+	url = https://github.com/VoxelGameDev/OpenVoxDeps
