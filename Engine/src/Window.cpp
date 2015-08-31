@@ -26,10 +26,9 @@ OPENVOX_MOVABLE_DEF(ovox::Window, o) {
     return *this;
 }
 
-bool ovox::Window::init(GameDisplayMode* displayMode /*= nullptr*/, bool isResizable /*= true*/) {
+bool ovox::Window::init(GameDisplayMode* displayMode /*= nullptr*/) {
     if (isInitialized()) return false;
     if (displayMode) m_displayMode = *displayMode;
-    m_displayMode.isResizable = isResizable;
 
     SDL_WindowFlags flags = (SDL_WindowFlags)DEFAULT_WINDOW_FLAGS;
     if (m_displayMode.isResizable) flags = (SDL_WindowFlags)(flags | SDL_WINDOW_RESIZABLE);

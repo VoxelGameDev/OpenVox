@@ -69,7 +69,7 @@ namespace ovox {
         *
         * @return True if no error occurred.
         */
-        bool init(GameDisplayMode* displayMode = nullptr, bool isResizable = true);
+        bool init(GameDisplayMode* displayMode = nullptr);
         /*! @brief Destroys the window and associated graphics context.
         *
         * @pre: This disposal method should be called on the thread where the window was created and the
