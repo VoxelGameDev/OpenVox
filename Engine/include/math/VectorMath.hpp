@@ -71,7 +71,7 @@ namespace vgd {
         */
         template <typename T>
         inline Vector2<T> normalize(const Vector2<T>& v) {
-#ifdef VORB_MATH_FAST
+#ifdef OPENVOX_MATH_FAST
             return v * vgdm::fastInverseSqrt(lengthSquared(v));
 #else
             return v / vgdm::length(v);
@@ -79,7 +79,7 @@ namespace vgd {
         }
         template <typename T>
         inline Vector3<T> normalize(const Vector3<T>& v) {
-#ifdef VORB_MATH_FAST
+#ifdef OPENVOX_MATH_FAST
             return v * vgdm::fastInverseSqrt(lengthSquared(v));
 #else
             return v / vgdm::length(v);
@@ -87,7 +87,7 @@ namespace vgd {
         }
         template <typename T>
         inline Vector4<T> normalize(const Vector4<T>& v) {
-#ifdef VORB_MATH_FAST
+#ifdef OPENVOX_MATH_FAST
             return v * vgdm::fastInverseSqrt(lengthSquared(v));
 #else
             return v / vgdm::length(v);
@@ -186,4 +186,4 @@ namespace vgd {
 }
 namespace vgdm = vgd::math;
 
-#endif // !Vorb_VectorMath_hpp__
+#endif // !OpenVox_VectorMath_hpp__
