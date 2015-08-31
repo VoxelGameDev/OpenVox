@@ -13,6 +13,9 @@
 
 #pragma once
 
+#include "OpenVoxAssert.hpp"
+
+
 namespace openvox {
     // Forward decl
     template <typename T>

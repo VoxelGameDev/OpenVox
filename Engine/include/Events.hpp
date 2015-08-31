@@ -45,15 +45,15 @@ public:
     DelegateBase(Caller c, Function f, UnknownStub s, Deleter d) :
         m_caller(c),
         m_func(f),
-        m_stub(s),
-        m_deletion(d) {
+        m_deletion(d),
+        m_stub(s) {
         // Empty
     }
     DelegateBase() :
         m_caller(nullptr),
         m_func(nullptr),
-        m_stub(nullptr),
-        m_deletion(doNothing) {
+        m_deletion(doNothing),
+        m_stub(nullptr) {
         // Empty
     }
     ~DelegateBase() {
@@ -68,7 +68,7 @@ protected:
     }
     template<typename T>
     static void freeObject(Caller c) {
-        T* obj = (T*)c;
+        T* obj = (T*)c;T
         obj->~T();
         operator delete(c);
     }
@@ -158,7 +158,7 @@ protected:
 template<typename... Args>
 class Delegate : public RDelegate<void, Args...> {
 public:
-    Delegate(Caller c, Function f, CallStub s, Deleter d) : RDelegate<void, Args...>(c, f, s, d) {
+    Delegate(DelegateBase::Caller c, DelegateBase::Function f, CallStub s, DelegateBase::Deleter d) : RDelegate<void, Args...>(c, f, s, d) {
         // Empty
     }
     Delegate() : RDelegate<void, Args...>() {
@@ -167,23 +167,23 @@ public:
 
     template<typename T>
     static Delegate create(const T* o, void(T::*f)(Args...) const) {
-        return Delegate(const_cast<T*>(o), *(Function*)&f, objectCall<T>, doNothing);
+        return Delegate(const_cast<T*>(o), *(DelegateBase::Function*)&f, objectCall<T>, doNothing);
     }
     template<typename T>
     static Delegate* createCopy(const T* o, void(T::*f)(Args...) const) {
         T* no = (T*)operator new(sizeof(T));
         new (no)T(*o);
-        return new Delegate(no, *(Function*)&f, objectCall<T>, freeObject<T>);
+        return new Delegate(no, *(DelegateBase::Function*)&f, objectCall<T>, freeObject<T>);
     }
     template<typename T>
     static Delegate create(T* o, void(T::*f)(Args...)) {
-        return Delegate(o, *(Function*)&f, objectCall<T>, doNothing);
+        return Delegate(o, *(DelegateBase::Function*)&f, objectCall<T>, doNothing);
     }
     template<typename T>
     static Delegate* createCopy(T* o, void(T::*f)(Args...)) {
         T* no = (T*)operator new(sizeof(T));
         new (no)T(*o);
-        return new Delegate(no, *(Function*)&f, objectCall<T>, freeObject<T>);
+        return new Delegate(no, *(DelegateBase::Function*)&f, objectCall<T>, freeObject<T>);
     }
     static Delegate create(void(*f)(Args...)) {
         return Delegate(nullptr, f, simpleCall, doNothing);

@@ -5,11 +5,17 @@
 #include <GL/glew.h>
 
 // TODO(Ben): This might not be right.
+#if defined(__APPLE__)
+#pragma message("Using SDL 2")
+#include <SDL2/SDL.h>
+#else
+#pragma message("Using SDL 1")
 #include <SDL/SDL.h>
+#endif
 
 #define DEFAULT_WINDOW_FLAGS (SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN)
 
-ovox::Window::Window() :
+openvox::Window::Window() :
 onQuit(this) {
     // Empty
 }
@@ -26,7 +32,7 @@ OPENVOX_MOVABLE_DEF(ovox::Window, o) {
     return *this;
 }
 
-bool ovox::Window::init(GameDisplayMode* displayMode /*= nullptr*/) {
+bool openvox::Window::init(GameDisplayMode* displayMode /*= nullptr*/) {
     if (isInitialized()) return false;
     if (displayMode) m_displayMode = *displayMode;
 
@@ -91,10 +97,10 @@ bool ovox::Window::init(GameDisplayMode* displayMode /*= nullptr*/) {
 
     // Push input from this window and receive quit signals
     // TODO(Ben): Input
-    // ovox::InputDispatcher::init(this);
-    // ovox::InputDispatcher::window.onClose += makeDelegate(*this, &Window::onQuitSignal);
-    // ovox::InputDispatcher::onQuit += makeDelegate(*this, &Window::onQuitSignal);
-    // ovox::InputDispatcher::window.onResize += makeDelegate(*this, &Window::onResize);
+    // openvox::InputDispatcher::init(this);
+    // openvox::InputDispatcher::window.onClose += makeDelegate(*this, &Window::onQuitSignal);
+    // openvox::InputDispatcher::onQuit += makeDelegate(*this, &Window::onQuitSignal);
+    // openvox::InputDispatcher::window.onResize += makeDelegate(*this, &Window::onResize);
     m_quitSignal = false;
 
     return true;
@@ -103,10 +109,10 @@ void ovox::Window::dispose() {
     if (!isInitialized()) return;
 
     // TODO(Ben): Input
-    // ovox::InputDispatcher::onQuit -= makeDelegate(*this, &Window::onQuitSignal);
-    // ovox::InputDispatcher::window.onClose -= makeDelegate(*this, &Window::onQuitSignal);
-    // ovox::InputDispatcher::window.onResize -= makeDelegate(*this, &Window::onResize);
-    // ovox::InputDispatcher::dispose();
+    // openvox::InputDispatcher::onQuit -= makeDelegate(*this, &Window::onQuitSignal);
+    // openvox::InputDispatcher::window.onClose -= makeDelegate(*this, &Window::onQuitSignal);
+    // openvox::InputDispatcher::window.onResize -= makeDelegate(*this, &Window::onResize);
+    // openvox::InputDispatcher::dispose();
 
     if (m_glc) {
         SDL_GL_DeleteContext((SDL_GLContext)m_glc);
@@ -119,7 +125,7 @@ void ovox::Window::dispose() {
     m_glc = nullptr;
 }
 
-void ovox::Window::setScreenSize(i32 w, i32 h, bool overrideCheck /*= false*/) {
+void openvox::Window::setScreenSize(i32 w, i32 h, bool overrideCheck /*= false*/) {
     // Apply A Minimal State Change
     if ((overrideCheck || m_displayMode.screenWidth != w || m_displayMode.screenHeight != h) && !m_displayMode.isFullscreen) {
         m_displayMode.screenWidth = w;
@@ -129,20 +135,20 @@ void ovox::Window::setScreenSize(i32 w, i32 h, bool overrideCheck /*= false*/) {
         InputDispatcher::window.onResize({ w, h }); // TODO(Ben): This feels so dirty, but is necessary for LUA UI
     }
 }
-void ovox::Window::setFullscreen(bool useFullscreen, bool overrideCheck /*= false*/) {
+void openvox::Window::setFullscreen(bool useFullscreen, bool overrideCheck /*= false*/) {
     if (overrideCheck || m_displayMode.isFullscreen != useFullscreen) {
         m_displayMode.isFullscreen = useFullscreen;
         SDL_SetWindowFullscreen((SDL_Window*)m_window, m_displayMode.isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
     }
 }
-void ovox::Window::setBorderless(bool useBorderless, bool overrideCheck /*= false*/) {
+void openvox::Window::setBorderless(bool useBorderless, bool overrideCheck /*= false*/) {
     if ((overrideCheck || m_displayMode.isBorderless != useBorderless) && !m_displayMode.isFullscreen) {
         m_displayMode.isBorderless = useBorderless;
         SDL_SetWindowBordered((SDL_Window*)m_window, m_displayMode.isBorderless ? SDL_FALSE : SDL_TRUE);
     }
 }
 
-void ovox::Window::setSwapInterval(GameSwapInterval mode, bool overrideCheck /*= false*/) {
+void openvox::Window::setSwapInterval(GameSwapInterval mode, bool overrideCheck /*= false*/) {
     if (overrideCheck || m_displayMode.swapInterval != mode) {
         m_displayMode.swapInterval = mode;
         switch (m_displayMode.swapInterval) {
@@ -156,19 +162,19 @@ void ovox::Window::setSwapInterval(GameSwapInterval mode, bool overrideCheck /*=
         }
     }
 }
-void ovox::Window::setMaxFPS(f32 fpsLimit) {
+void openvox::Window::setMaxFPS(f32 fpsLimit) {
     m_displayMode.maxFPS = fpsLimit;
 }
-void ovox::Window::setTitle(const cString title) const {
+void openvox::Window::setTitle(const cString title) const {
     if (!title) title = DEFAULT_TITLE;
     SDL_SetWindowTitle((SDL_Window*)m_window, title);
 }
 
-void ovox::Window::setPosition(int x, int y) {
+void openvox::Window::setPosition(int x, int y) {
     SDL_SetWindowPosition((SDL_Window*)m_window, x, y);
 }
 
-void ovox::Window::sync(u32 frameTime /*= UINT_MAX*/) {
+void openvox::Window::sync(u32 frameTime /*= UINT_MAX*/) {
     pollInput();
     SDL_GL_SwapWindow((SDL_Window*)m_window);
 
@@ -180,37 +186,37 @@ void ovox::Window::sync(u32 frameTime /*= UINT_MAX*/) {
     }
 }
 
-ovox::GraphicsContext ovox::Window::getContext() const {
+openvox::GraphicsContext openvox::Window::getContext() const {
     return m_glc;
 }
 
-i32 ovox::Window::getX() const {
+i32 openvox::Window::getX() const {
     i32 v;
     SDL_GetWindowPosition((SDL_Window*)m_window, &v, nullptr);
     return v;
 }
-i32 ovox::Window::getY() const {
+i32 openvox::Window::getY() const {
     i32 v;
     SDL_GetWindowPosition((SDL_Window*)m_window, nullptr, &v);
     return v;
 }
-i32v2 ovox::Window::getPosition() const {
+i32v2 openvox::Window::getPosition() const {
     i32v2 v;
     SDL_GetWindowPosition((SDL_Window*)m_window, &v.x, &v.y);
     return v;
 }
 
-void ovox::Window::pollInput() {
+void openvox::Window::pollInput() {
     // TODO(Ben): Event filter
     // SDL_Event e;
     // while (SDL_PollEvent(&e) != 0) continue;
 }
 
-void ovox::Window::onResize(Sender s, const WindowResizeEvent& e) {
+void openvox::Window::onResize(Sender s, const WindowResizeEvent& e) {
     m_displayMode.screenWidth = e.w;
     m_displayMode.screenHeight = e.h;
 }
 
-void ovox::Window::onQuitSignal(Sender) {
+void openvox::Window::onQuitSignal(Sender) {
     m_quitSignal = true;
 }

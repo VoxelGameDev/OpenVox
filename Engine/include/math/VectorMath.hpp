@@ -10,6 +10,12 @@
 */
 
 #pragma once
+#ifndef OpenVox_VectorMath_hpp__
+#define OpenVox_VectorMath_hpp__
+
+
+#include <cmath>
+
 
 namespace openvox {
     namespace math {
