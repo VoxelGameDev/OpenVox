@@ -1,6 +1,6 @@
 //
 // Vector.hpp
-// VGD Engine
+// OpenVox Engine
 //
 // Created by Benjamin Arnold on 29 Aug 2015
 // Copyright 2014 Regrowth Studios
@@ -8,12 +8,18 @@
 //
 
 /*! \file Vector.h
-* @brief Defines custom VGD vector types.
+* @brief Defines custom OpenVox vector types.
 */
 
 #pragma once
 
-namespace vgd {
+#include <vector>
+
+#include "OpenVoxAssert.hpp"
+#include "Decorators.h"
+
+
+namespace openvox {
     // Forward decl
     template <typename T>
     class Vector3;

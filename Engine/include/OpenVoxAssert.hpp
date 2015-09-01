@@ -1,12 +1,12 @@
 //
-// VGDAssert.hpp
-// VGD Engine
+// OpenVoxAssert.hpp
+// OpenVox Engine
 //
 // Created by Benjamin Arnold on 29 Aug 2015
 //
 
-/*! \file VGDAssert.hpp
-* @brief Custom throw assertion for VGD.
+/*! \file OpenVoxAssert.hpp
+* @brief Custom throw assertion for OpenVox.
 */
 
 // Copyright (c) 2015 Softwariness.com
@@ -102,8 +102,8 @@ public:
 };
 
 #ifdef NDEBUG
-#define vgd_assert(EXPRESSION, MESSAGE) ((void)0)
+#define openvox_assert(EXPRESSION, MESSAGE) ((void)0)
 #else
 /// Assert that EXPRESSION evaluates to true, otherwise raise AssertionFailureException with associated MESSAGE (which may use C++ stream-style message formatting)
-#define vgd_assert(EXPRESSION, MESSAGE) if(!(EXPRESSION)) { throw AssertionFailureException(#EXPRESSION, __FILE__, __LINE__, (AssertionFailureException::StreamFormatter() << MESSAGE)); }
+#define openvox_assert(EXPRESSION, MESSAGE) if(!(EXPRESSION)) { throw AssertionFailureException(#EXPRESSION, __FILE__, __LINE__, (AssertionFailureException::StreamFormatter() << MESSAGE)); }
 #endif

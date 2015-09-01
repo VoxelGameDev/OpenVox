@@ -12,12 +12,16 @@
 
 #pragma once
 
-#include "OVOX.h"
-#include "Events.hpp"
+#include "OpenVox.h"
 
-namespace ovox {
-    // Forward declarations
-    struct WindowResizeEvent;
+namespace openvox {
+    /// Window resize event data
+    struct WindowResizeEvent {
+    public:
+        u32 w; ///< New window width in pixels
+        u32 h; ///< New window height in pixels
+    };
+
 
     typedef void* WindowHandle; ///< Typeless window handle;
     typedef void* GraphicsContext; ///< Typeless graphics handle.
@@ -147,7 +151,7 @@ namespace ovox {
         */
         void setPosition(int x, int y);
         void setMaxFPS(f32 fpsLimit);
-        void setTitle(const cString title) const;
+        void setTitle(const char* title) const;
 
         void sync(u32 frameTime = UINT_MAX);
 
